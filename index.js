@@ -4,8 +4,7 @@ const drumsNo = document.querySelectorAll(".drum").length;
 for (let i = 0; i < drumsNo; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function () {
     const drumName = this.classList[0];
-    const audio = new Audio(`sounds/${drumName}.mp3`);
-    audio.play();
+    makeSound(drumName);
   });
 }
 
@@ -15,8 +14,12 @@ document.addEventListener("keydown", function (e) {
     const keyTest = document.querySelectorAll(".drum")[i].contains(drumKey);
     if (keyTest) {
       const selected = document.querySelector(".drumKey").classList[0];
-      const audio = new Audio(`sounds/${selected}.mps`);
-      audio.play();
+      makeSound(selected);
     }
   }
 });
+
+function makeSound(sound) {
+  const audio = new Audio(`sounds/${sound}.mp3`);
+  audio.play();
+}
