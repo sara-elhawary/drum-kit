@@ -8,3 +8,15 @@ for (let i = 0; i < drumsNo; i++) {
     audio.play();
   });
 }
+
+document.addEventListener("keydown", function (e) {
+  const drumKey = e.key;
+  for (let i = 0; i < drumsNo; i++) {
+    const keyTest = document.querySelectorAll(".drum")[i].contains(drumKey);
+    if (keyTest) {
+      const selected = document.querySelector(".drumKey").classList[0];
+      const audio = new Audio(`sounds/${selected}.mps`);
+      audio.play();
+    }
+  }
+});
