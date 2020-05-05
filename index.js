@@ -1,6 +1,10 @@
 const drumsNo = document.querySelectorAll(".drum").length;
-for (const i = 1; i <= drumsNo; i++) {
+//had to use let with i to be able to increment it
+
+for (let i = 0; i < drumsNo; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function () {
-    alert(`Drum ${i} got clicked!`);
+    const drumName = this.classList[0];
+    const audio = new Audio(`sounds/${drumName}.mp3`);
+    audio.play();
   });
 }
